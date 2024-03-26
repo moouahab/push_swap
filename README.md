@@ -19,3 +19,8 @@ Exécutez le programme en fournissant les entiers à trier en ligne de commande 
 ```
    ./push_swap [entiers à trier]
 ```
+Le programme affichera une série d'opérations à exécuter sur la pile pour atteindre la configuration triée.
+
+Conclusion
+
+Le projet Push_swap offre aux étudiants une opportunité précieuse d'explorer et de maîtriser les algorithmes de tri, la manipulation de données et l'optimisation des performances dans un environnement pratique. En le complétant avec succès, les étudiants acquièrent une compréhension approfondie des concepts fondamentaux de l'informatique et des techniques avancées de programmation.
