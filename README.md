@@ -16,6 +16,8 @@ Pour utiliser le programme Push_swap, suivez les étapes suivantes :
 
 Compilez le programme en exécutant la commande make dans le répertoire du projet.
 Exécutez le programme en fournissant les entiers à trier en ligne de commande ou en redirigeant l'entrée standard vers un fichier contenant les entiers.
-<prev>
-  ./push_swap [entiers à trier]
-</prev>
+```
+  <prev>
+    ./push_swap [entiers à trier]
+  </prev>
+```
