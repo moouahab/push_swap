@@ -1,0 +1,301 @@
+Tu es un agent qui génère des tests unitaires pour ce projet.
+Fournis le contenu des fichiers de tests à écrire, en pytest si Python, sinon propose des tests adaptés.
+
+## Architecture.md
+# Contexte architecture
+
+- Racine du snapshot : `/home/noxe/projet/push_swap`
+- Fichiers scannés   : 99
+
+## Langages dominants
+- c · 84 fichiers (ex: algo_turk/init_noeud_a.c, algo_turk/init_noeud_b.c, algo_turk/limit.c)
+- markdown · 6 fichiers (ex: .pytest_cache/README.md, CHANGELOG.md, MISSION.md)
+
+## Signaux frameworks/outillage
+- Aucun signal détecté
+
+## Type de projet (heuristique)
+- Type : api (low)
+- Signaux : app/server/main entrypoint
+
+## Stack detectee
+- Stack : c
+- Signaux : language:c
+
+## Architecture logique
+- Pipeline : scan → map → analyze
+  - scan : construit un snapshot (arbre de fichiers + README).
+  - map  : agent analyste (langages, frameworks, docs, entrypoints, watchers) et génère `architecture.md`.
+  - analyze : agent chef de projet (priorités, décisions) sur snapshot + changelog.
+
+## Composants clés
+- (composants non identifiés)
+
+## Données échangées
+- Snapshot : {root, tree[], readmes[]} issu de `scan`.
+- architecture.md : mémo généré par l’agent analyste (ce fichier).
+- Changelog (optionnel) : JSON passé à `analyze`.
+
+## Points d’entrée probables
+- main.c
+
+## Documentation repérée
+- README : README.md · Description
+- README : .pytest_cache/README.md · pytest cache directory #
+- Doc : docs/push_swap.en.subject.pdf
+- Doc : docs/review_report.md
+
+## Watchers / boucles rapides
+- generic: `watch -n 2 "echo monitoring..."`
+
+## IA / Providers
+- Modes : `model` (API) ou `client_ia` (clients locaux).
+- Sélection : auto-préférence Codex si présent, sinon `--ia-provider` ou `/provider` dans le shell.
+
+## Agents Carabiner
+- Analyste : cartographie langages/frameworks/docs/entrypoints, génère `architecture.md`.
+- Tests : propose commandes de tests et pistes de couverture (sortie `tests` dans le bundle).
+- Chef de projet : priorités/décisions à partir du snapshot et du changelog.
+
+## Commandes CLI utiles
+- `carabiner` (shell interactif `/`), `carabiner map <path> --ia-mode ...`, `carabiner full ...`.
+- Flags : `--ia-mode`, `--ia-provider`, `-i` (prompts)
+
+## Revue (review_report.md)
+# Revue de code (rapport généré)
+
+- Extraits disponibles : 25
+- Fonctions détectées  : 0
+- Signalements pratiques : 0
+
+## Fonctions indexées
+Aucune fonction détectée.
+
+## Logique / extrait par fichier
+### main.c
+```
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/05 15:46:46 by moouahab          #+#    #+#             */
+/*   Updated: 2023/12/25 18:42:44 by moouahab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "./include/push_swap.h"
+
+int	main(int ac, char *av[])
+{
+	t_stack	a;
+	t_stack	b;
+
+	init_dbs(&a, &b);
+	if (ac <= 1)
+		return (0);
+	if (parsing(ac, av, &a))
+	{
+		a = reverse(a);
+		if (!stack_sort(a))
+		{
+			if (stack_size(a) == 2)
+				sa(a);
+			else if (stack_size(a) == 3)
+				sort_three_a(&a);
+			els
+```
+### stack/stack_utils2.c
+```
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   
+
+## Extraits de code
+### main.c
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/05 15:46:46 by moouahab          #+#    #+#             */
+/*   Updated: 2023/12/25 18:42:44 by moouahab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "./include/push_swap.h"
+
+int	main(int ac, char *av[])
+{
+	t_stack	a;
+	t_stack	b;
+
+	init_dbs(&a, &b);
+	if (ac <= 1)
+		return (0);
+	if (parsing(ac, av, &a))
+	{
+		a = reverse(a);
+		if (!stack_sort(a))
+		{
+			if (stack_size(a) == 2)
+				sa(a);
+			else if (stack_size(a) == 3)
+				sort_three_a(&a);
+			els
+
+### stack/stack_utils2.c
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/12 08:48:22 by moouahab          #+#    #+#             */
+/*   Updated: 2023/12/14 13:36:06 by moouahab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "../include/push_swap.h"
+
+t_stack	pop_stack(t_stack lst)
+{
+	t_element_stack	*el;
+
+	if (is_empty_stack(lst))
+		return (init_stack());
+	el = lst->next;
+	free(lst);
+	return (el);
+}
+
+/***************************************************/
+
+int	stack_size(t_stack	lst
+
+### stack/stack_utils.c
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/12 08:47:41 by moouahab          #+#    #+#             */
+/*   Updated: 2023/12/13 23:47:35 by moouahab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "../include/stack.h"
+#include "../include/push_swap.h"
+
+t_stack	init_stack(void)
+{
+	return (NULL);
+}
+
+/************************************************/
+
+t_bool	is_empty_stack(t_stack	lst)
+{
+	if (lst == NULL)
+		return (TRUE);
+	return (FALSE);
+}
+
+/*************
+
+### stack/push_s.c
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_s.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/12 08:47:59 by moouahab          #+#    #+#             */
+/*   Updated: 2023/12/12 08:48:03 by moouahab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "../include/stack.h"
+
+void	push_s(t_stack	*lst, int ac, char	**av )
+{
+	int	i;
+
+	i = 1;
+	while (i < ac)
+	{
+		*lst = push_stack(*lst, atoi(av[i]));
+		i++;
+	}
+}
+
+/*
+int	main(int	ac, char	**av)
+{
+	t_stack	lst;
+	int	i;
+
+	i = 1;
+	lst = init_stack();
+	
+	if (ac > 1)
+	
+
+### split/split_utils.c
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/12 08:48:40 by moouahab          #+#    #+#             */
+/*   Updated: 2023/12/12 08:48:45 by moouahab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/parsing.h"
+
+t_bool	is_sp(char str)
+{
+	if ((str < 14 && str > 8) || str == 32)
+		return (TRUE);
+	return (FALSE);
+}
+
+int	count_word(char	*str)
+{
+	int	inside_word;
+	int	count;
+
+	count = 0;
+	inside_word = 0;
+	while (*str)
+	{
+		if (is_sp(*str))
+			inside_word = 0;
+		else if (!inside_word)
+		
+
+Produit des fichiers de test complets. Format de sortie attendu : bloc par fichier sous la forme ```tests/generated/nom_du_test.py
+<contenu>
+```.
+IMPORTANT: le chemin du fichier doit être sur la même ligne que les ```.
